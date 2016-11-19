@@ -73,7 +73,7 @@ BOOL CSerialLink::SetupSerialPort(char* port)
 	m_bPortReady = FALSE;
 	char portname[] = { '\\','\\','.','\\',0,0,0,0,0,0 };
 	strcpy_s(&portname[4], 5, port);
-	m_hCom = CreateFile("\\\\.\\COM5", GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ,  NULL,  OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL,  NULL);
+	m_hCom = CreateFile(portname, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ,  NULL,  OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL,  NULL);
 
 	if (m_hCom == INVALID_HANDLE_VALUE)
 	{
